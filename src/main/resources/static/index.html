@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AWS S3 Manager</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<h1>AWS S3 Bucket Manager</h1>
+
+<div class="container">
+    <!-- Section 1: Create Bucket -->
+    <div class="section">
+        <h3>Create Bucket</h3>
+        <form id="createBucketForm" onsubmit="createBucket(event)">
+            <label for="bucketName">Bucket Name</label>
+            <input type="text" id="bucketName" name="bucketName" required placeholder="Enter bucket name">
+            <input type="submit" value="Create Bucket">
+            <div id="createBucketResult" class="result"></div>
+        </form>
+    </div>
+
+    <!-- Section 2: Upload File -->
+    <div class="section">
+        <h3>Upload File</h3>
+        <form id="uploadFileForm" enctype="multipart/form-data" onsubmit="uploadFile(event)">
+            <label for="uploadBucketName">Bucket Name</label>
+            <input type="text" id="uploadBucketName" name="bucketName" required placeholder="Target bucket">
+            
+            <label for="file">Select File</label>
+            <input type="file" id="file" name="file" required>
+            
+            <input type="submit" value="Upload File">
+            <div id="uploadFileResult" class="result"></div>
+        </form>
+    </div>
+
+    <!-- Section 3: Download File -->
+    <div class="section">
+        <h3>Download File</h3>
+        <form id="downloadFileForm" onsubmit="downloadFile(event)">
+            <label for="downloadBucketName">Bucket Name</label>
+            <input type="text" id="downloadBucketName" name="bucketName" required placeholder="Source bucket">
+            
+            <label for="downloadFileName">File Name</label>
+            <input type="text" id="downloadFileName" name="fileName" required placeholder="File to download">
+            
+            <input type="submit" value="Download File">
+            <div id="downloadFileResult" class="result"></div>
+        </form>
+    </div>
+
+    <!-- Section 4: Delete File -->
+    <div class="section">
+        <h3>Delete File</h3>
+        <form id="deleteFileForm" onsubmit="deleteFile(event)">
+            <label for="deleteBucketName">Bucket Name</label>
+            <input type="text" id="deleteBucketName" name="bucketName" required placeholder="Source bucket">
+            
+            <label for="deleteFileName">File Name</label>
+            <input type="text" id="deleteFileName" name="fileName" required placeholder="File to delete">
+            
+            <input type="submit" value="Delete File">
+            <div id="deleteFileResult" class="result"></div>
+        </form>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="js/script.js"></script>
+
+</body>
+</html>
